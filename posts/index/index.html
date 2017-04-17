@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Spirng MVC 源码分析(一) // Coder.W Blog
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="Github Pages,Go,Hugo,">
+<meta name="author" content="王庆">
+<meta name="generator" content="Hugo 0.20" />
+
+  <meta property="og:title" content="Spirng MVC 源码分析(一)" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="http:karlwang.me/posts/index/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="http:karlwang.me/css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Coder.W Blog" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/rainbow.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+	  <img src="/img/head.png" class="sidebarphoto">
+	
+
+    <h1 class="brand-title">Coder.W Blog</h1>
+    <h2 class="brand-tagline">一个IT男，喜欢足球，喜欢Dota</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="http:karlwang.me">主页</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/posts">归档</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/posts">分类</a></li>
+        
+          <li class="nav-item"><span class="nav-item-separator">//</span><a href="/about">关于我</a></li>
+        
+      </ul>
+    </nav>
+
+    
+    <div class="social-buttons">
+      
+        
+        <a href="http://www.twitter.com/rosenlucumt" target="_blank"><i class='fa fa-weixin fa-lg'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/rosenlucumt" target="_blank"><i class='fa fa-weibo fa-lg'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/rosenlucumt" target="_blank"><i class='fa fa-github fa-lg'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/rosenlucumt" target="_blank"><i class='fa fa-twitter fa-lg'></i></a>
+        
+      
+        
+        <a href="http://www.twitter.com/rosenlucumt" target="_blank"><i class='fa fa-envelope fa-lg'></i></a>
+        
+      
+      
+    </div>
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#这是第一条信息">这是第一条信息</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/posts/index/">Spirng MVC 源码分析(一)</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>13</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Apr</span> <span class="post-date-year">2016</span>
+            	</span>
+            	
+            
+            	
+            		<span class="post-author-single">By <a class="post-author"  target="">王庆</a></span>
+            		
+
+
+
+
+            	
+            
+
+			
+			
+
+			
+
+			
+
+            <p>从一个单线程程序切换为多线程程序在给我们带来好处的同时也会产生一些额外的成本，不要因为会使用多线程就将一个程序变为多线程实现。在准备使用多线程时，我们应该有一个清楚的认识：使用多线程带来的好处大于其成本，当有不确定时，我们应该尝试度量应用程序的性能和响应性来决定是否采用多线程，而不是靠猜来决定。</p>
+
+<pre><code class="language-java">@RequestMapping(value = &quot;/listSpecifyPushMsgs&quot;, method = RequestMethod.GET)
+public JsonResult&lt;SpecifyMsgs&gt; listSpecifyPushMsgs(@RequestParam(&quot;lastTime&quot;) long lastTime, @RequestParam(&quot;size&quot;) int size, HttpServletRequest request) {
+    long userId = (long) request.getAttribute(Constants.REQUEST_USER_ID_KEY);
+    JsonResult&lt;SpecifyMsgs&gt; result = new JsonResult&lt;&gt;();
+    if (lastTime &lt; 0 || size &lt; 1 || size &gt; Constants.MAX_LIST_PAGE_ITEM_SIZE) {
+        result.setResultCode(ResultCode.PARAMS_ERROR);
+            return result;
+    }
+    
+    SpecifyMsgs specifyMsgs = new SpecifyMsgs();
+    specifyMsgs.setHasMore(false);
+    List&lt;SpecifyPush&gt; specifyPushes = pushService.listSpecifyPushMsgs(userId, PushType.SPECIFY_PUSH_LH_AND_HCG_RECOMMEND, lastTime == 0 ? System.currentTimeMillis() : lastTime, size + 1);
+    if (!CollectionUtils.isEmpty(specifyPushes)) {
+        specifyMsgs.setHasMore(specifyPushes.size() &gt; size);
+        int count = 0;
+        List&lt;SpecifyMsgs.SpecifyMsg&gt; specifyMsgList = new ArrayList&lt;&gt;();
+        for (SpecifyPush specifyPush : specifyPushes) {
+            if (count &lt; size) {
+                specifyMsgList.add(new SpecifyMsgs.SpecifyMsg(specifyPush.getTitle(),
+                        specifyPush.getAlert(), specifyPush.getType(), specifyPush.getTime()));
+            } else {
+                break;
+            }
+                count++;
+            }
+            specifyMsgs.setSpecifyMsgs(specifyMsgList);
+        }
+        result.setData(specifyMsgs);
+        return result;
+    }
+</code></pre>
+
+<h3 id="这是第一条信息">这是第一条信息</h3>
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+					<div class="paging-newer">
+						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
+						<a class="paging-link" href="/about/">关于我</a>
+		            </div>
+		            
+
+					
+	            </div>
+            
+          </section>
+		
+		<div class="comments">
+			<div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+    var cloudTieConfig = {
+        url: document.location.href,
+        sourceId: "",
+        productKey: "5bc365f3775243d99d4b2ae9d2a9dc96",
+        target: "cloud-tie-wrapper"
+    };
+    var yunManualLoad = true;
+    Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
+		</div>
+		
+      <div class="footer">
+	<hr class="thin" />
+	<div class="pure-menu pure-menu-horizontal pure-menu-open">
+		<ul class="footer-menu">
+		
+		</ul>
+	</div>
+
+	<p>&copy; 2017. All rights reserved.</p>
+</div>
+    </div>
+  </div>
+	
+
+	
+
+  
+
+</body>
+</html>
