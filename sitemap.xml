@@ -2,8 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://karlwang.me/posts/second/</loc>
-    <lastmod>2017-04-14T12:57:55+08:00</lastmod>
+    <loc>http://karlwang.me/posts/app/backend-architecture/</loc>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://karlwang.me/posts/app/backend-introduction/</loc>
+    <lastmod>2017-04-17T20:27:43+08:00</lastmod>
   </url>
   
   <url>
@@ -12,24 +17,32 @@
   </url>
   
   <url>
-    <loc>http://karlwang.me/posts/index/</loc>
-    <lastmod>2016-04-13T16:12:33+08:00</lastmod>
+    <loc>http://karlwang.me/categories/app%E5%90%8E%E5%8F%B0/</loc>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>http://karlwang.me/categories/</loc>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://karlwang.me/categories/java/</loc>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://karlwang.me/</loc>
-    <lastmod>2017-04-14T12:57:55+08:00</lastmod>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>http://karlwang.me/posts/</loc>
-    <lastmod>2017-04-14T12:57:55+08:00</lastmod>
+    <lastmod>2017-04-18T15:19:10+08:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -7,11 +7,23 @@ html {
 	color: #2d303b;
 }
 html, p, nav, section, article {
-	font-family: 'Raleway', 'Helvetica', 'Arial', sans-serif;
+	font-family: 'Microsoft Yahei','Raleway', 'Helvetica', 'Arial', sans-serif;
 }
 
 section, .cloud-tie-wrapper{
 	margin: 1em 5% 0 2.42857%;
+}
+code {
+	padding: 0 2px;
+	background-color: rgba(45,77,165,0.12);
+	font-size: 90%;
+	color: #c72f4e;
+	border-radius: 4px;
+	line-height:normal;
+}
+
+blockquote {
+	margin: 0 40px;
 }
 
 pre {
@@ -51,8 +63,8 @@ p a {
 	color:#7F1000;
 }
 h1 {
-	font-family: 'Libre Baskerville', serif;
-	font-weight: 700; 
+	font-family: 'Microsoft Yahei','Libre Baskerville', sans-serif;
+	font-weight: bold;
 }
 .center {
 	text-align: center;
@@ -168,7 +180,7 @@ h2.brand-tagline {
 h1.post-title a {
 	text-decoration: none;
 	color: #111111;
-	font-size: 0.7em;
+	font-size: 0.9em;
 }
 .post-date {
 	color: #E54028;
@@ -232,6 +244,11 @@ a.post-author {
 .post table {
     margin-bottom: 1.75rem;
     margin-top: 0;
+	width: 50%;
+}
+
+table, tr, th ,td {
+	border: 1px solid black;
 }
 .post-title {
     font-size: 2rem;

@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Coder.W Blog</title>
+    <title>Karl.W Blog</title>
     <link>http://karlwang.me/</link>
-    <description>Recent content on Coder.W Blog</description>
+    <description>Recent content on Karl.W Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Fri, 14 Apr 2017 12:57:55 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 18 Apr 2017 15:19:10 +0800</lastBuildDate>
     
 	<atom:link href="http://karlwang.me/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Spirng MVC 源码分析(二)</title>
-      <link>http://karlwang.me/posts/second/</link>
-      <pubDate>Fri, 14 Apr 2017 12:57:55 +0800</pubDate>
+      <title>App后台架构</title>
+      <link>http://karlwang.me/posts/app/backend-architecture/</link>
+      <pubDate>Tue, 18 Apr 2017 15:19:10 +0800</pubDate>
       
-      <guid>http://karlwang.me/posts/second/</guid>
+      <guid>http://karlwang.me/posts/app/backend-architecture/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>万事开头难，先做个规划</title>
+      <link>http://karlwang.me/posts/app/backend-introduction/</link>
+      <pubDate>Mon, 17 Apr 2017 20:27:43 +0800</pubDate>
+      
+      <guid>http://karlwang.me/posts/app/backend-introduction/</guid>
+      <description>&lt;h4 id=&#34;初衷&#34;&gt;初衷&lt;/h4&gt;
+
+&lt;p&gt;工作也有些时候了，平时的积累总是感觉很零散，很多时候做过的事情，查过的资料在下次遇到的时候很可能又再次忘记。
+总是把时间花在了重复的事情上，一来二往就对自己这样的低效率感到不满。既然是一个程序员，那就应该对重复的事情说 &amp;ldquo;NO&amp;rdquo;。
+思来想去还是觉得把这些工作上积累的，学习的东西都记录下来。正好最近一直在做移动APP的后台，这和我之前的Web后台
+还是有不少的区别，做为这个系列的开始，我就准备详细记录下移动APP后台中需要解决的问题。但是因为个人能力有限，很
+可能我所使用的方式不是最好的解决方案，如果大家有更好的实现或者解决方法，欢迎大家留言告诉我，我们可以一起讨论。&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -29,24 +46,6 @@
       <description>   大家好，我叫Coder.W , 是一名程序猿，主要从事Java后台开发，会一点前端，也会一点Python，也在努力学习Golang。
 我的经历 电科技大学毕业（本、硕），最初从事过运维开发，后转为Java后台开发，接触了云计算后，做过KVM、QUMU相关工作，现在主要从事 虚拟容器内应用性能平台开发。同时也参与过移动APP的后台架构与开发。
 工作中的我  虚拟化相关， 容器虚拟化（主要Docker）中的应用性能监控。 App相关， 基于Java的App后台开发。 Linux运维相关， 做一些自动化运维相关工作。 Kubernetes与Hugo， 个人爱好，顺带学习Go语言。  生活中的我  喜欢足球，最喜欢的球队是尤文图斯，喜欢的球星是皮耶罗。 喜欢游戏，曾经的WOW狂热爱好者，忠实的暴雪粉，同时也喜欢Dota2，喜欢竞技类游戏，喜欢挑战。 喜欢跑步，坚持每周跑步5+天，作为一名需要长期坐姿办公的程序猿，自从开始坚持跑步后，腰也没酸了，腿也没痛了。 喜欢美食，喜欢空闲时间料理各种美食，也喜欢和朋友一起去品尝各种美食。 喜欢思考，喜欢没事的时候自己一个人思考，考虑那些可能很远的事情，对未来充满好奇。 尽管我有上面这么多爱好，但是我感觉我还是有点 宅。  工作技能  编程语言，Java、pyton。平时工作主要使用Java, 学习Go语言中。 Web相关，略懂前端，平时自己喜欢写一些CSS+JS，熟悉Java后台Web相关技术，熟练使用Spring+SpringMVC+Mybaits搭建Web 后台。 Linux运维，能熟练编写Linux脚本，同时熟悉Docker，能编写Dockerfile相关脚本。 中间件，熟悉主流中间件，能进行Redis、RabbitMQ、Hbase、Kafak、Duird等系统集群搭建。  </description>
-    </item>
-    
-    <item>
-      <title>Spirng MVC 源码分析(一)</title>
-      <link>http://karlwang.me/posts/index/</link>
-      <pubDate>Wed, 13 Apr 2016 16:12:33 +0800</pubDate>
-      
-      <guid>http://karlwang.me/posts/index/</guid>
-      <description>&lt;p&gt;从一个单线程程序切换为多线程程序在给我们带来好处的同时也会产生一些额外的成本，不要因为会使用多线程就将一个程序变为多线程实现。在准备使用多线程时，我们应该有一个清楚的认识：使用多线程带来的好处大于其成本，当有不确定时，我们应该尝试度量应用程序的性能和响应性来决定是否采用多线程，而不是靠猜来决定。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@RequestMapping(value = &amp;quot;/listSpecifyPushMsgs&amp;quot;, method = RequestMethod.GET)
-public JsonResult&amp;lt;SpecifyMsgs&amp;gt; listSpecifyPushMsgs(@RequestParam(&amp;quot;lastTime&amp;quot;) long lastTime, @RequestParam(&amp;quot;size&amp;quot;) int size, HttpServletRequest request) {
-    long userId = (long) request.getAttribute(Constants.REQUEST_USER_ID_KEY);
-    JsonResult&amp;lt;SpecifyMsgs&amp;gt; result = new JsonResult&amp;lt;&amp;gt;();
-    if (lastTime &amp;lt; 0 || size &amp;lt; 1 || size &amp;gt; Constants.MAX_LIST_PAGE_ITEM_SIZE) {
-        result.setResultCode(ResultCode.PARAMS_ERROR);
-            return result;
-    }</description>
     </item>
     
   </channel>
